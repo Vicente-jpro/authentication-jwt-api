@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
+  
+  def create
+    @authentication = AuthenticationJwt.new(params[:data], params[:password])
+    debugger
+    render json: {token: @authentication.token, @authentication.decoded_token}
+  end
+  
   def show
-    payload = 
-    @authentication = AuthenticationJwt.new()
   end
 
   def index
